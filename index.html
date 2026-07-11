@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <script src="https://unpkg.com/lenis@1.0.0/dist/lenis.min.js"></script>
-    <script src="star.js"></script>
+    <script type="module" src="script.js"></script>
     <title>Cosmic Lumina</title>
 </head>
 <script>
@@ -588,86 +588,64 @@ requestAnimationFrame(raf);
      </div>
 
    <footer class="footer">
-    <p class="text-footer">
-        © 2026 All Rights Reserved
-    </p>
 
-    <p class="footer-credit">
-        Designed &amp; Developed with
-        <span class="heart">❤</span>
-        by <span class="name">Harsh Sahu</span>
-    </p>
+    <div class="footer-left">
+
+        <p class="text-footer">
+            © 2026 All Rights Reserved
+        </p>
+
+        <p class="footer-credit">
+            Designed &amp; Developed with
+            <span class="heart">❤</span>
+            by <span class="name">Harsh Sahu</span>
+        </p>
+
+    </div>
+
+    <div class="like-card">
+
+        <div id="heartParticles"></div>
+
+        <button id="heartBtn" aria-label="Give a heart">
+            ❤
+        </button>
+
+        <p class="heart-text">
+            Give a Heart
+            <span>if you liked this website</span>
+        </p>
+
+        <div id="heartCount">
+            Loading...
+        </div>
+
+    </div>
+
 </footer>
     <!-- Section for Footer of the website , It is presented at the bottom of the website . -->
  
 <script>
-//    const body = document.body;
+  function spawnHeart(){
 
-// for (let i = 0; i < 150; i++) {
-//    const star = document.createElement("div");
-// star.className = "stars";
-// star.style.position = "fixed";
-// star.style.zIndex = "-1";
-// star.style.pointerEvents = "none";
-//     star.className = "stars";
+    const h=document.createElement("span");
 
-//     // random position
-//     const x = window.innerWidth * Math.random();
-//     const y = window.innerHeight * Math.random();
+    h.className="floating-heart";
 
-//     star.style.setProperty("--x", x);
-//     star.style.setProperty("--y", y);
+    h.innerHTML="❤";
 
-//     // random size (more natural look)
-//     const size = 1 + Math.random() * 3;
-//     star.style.width = size + "px";
-//     star.style.height = size + "px";
+    h.style.setProperty(
+        "--x",
+        (Math.random()*90-45)+"px"
+    );
 
-//     // separate animation durations
-//     const moveDuration = 100 + Math.random() * 100; // VERY slow
-//     const fadeDuration = 3 + Math.random() * 5;
-    
+    document
+        .getElementById("heartParticles")
+        .appendChild(h);
 
-//     star.style.animationDuration = `${moveDuration}s, ${fadeDuration}s`;
+    setTimeout(()=>h.remove(),1600);
 
-//     body.appendChild(star);
-
-//     const scrollElements = document.querySelectorAll(".animate-on-scroll");
-
-//   const observer = new IntersectionObserver((entries, observer) => {
-//     entries.forEach(entry => {
-//       if (entry.isIntersecting) {
-//         entry.target.classList.add("visible");
-//         observer.unobserve(entry.target); // animate only once
-//       }
-//     });
-//   }, { threshold: 0.2 }); // triggers when 20% visible
-
-//   scrollElements.forEach(el => observer.observe(el));
-// }
-//  document.querySelectorAll(".toggle-text").forEach(toggle => {
-//   toggle.addEventListener("click", () => {
-//     const expand = toggle.closest(".planetcard").querySelector(".expand");
-
-//     if (expand.classList.contains("open")) {
-//       // collapse
-//       expand.style.maxHeight = "0px";
-//       expand.classList.remove("open");
-//       toggle.textContent = "▼ Show More";
-//     } else {
-//       // expand
-//       expand.classList.add("open");
-//       expand.style.maxHeight = expand.scrollHeight + "px"; 
-//       toggle.textContent = "▲ Show Less";
-//     }
-//   });
-// });  
-// =============================
-// Smooth Scrolling (Lenis)
-// =============================
-// =============================
-// STAR FIELD
-// =============================
+}
 const body = document.body;
 const stars = [];
 const STAR_COUNT = 150;
@@ -789,5 +767,6 @@ document.querySelectorAll(".toggle-text").forEach(toggle => {
 
 });
 </script> 
+
 </body>
 </html>
