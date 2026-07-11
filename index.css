@@ -2482,7 +2482,7 @@ body{
         grid-template-columns:1fr;
     }
     .solar-facts{
-  display: grid;
+    display: grid;
 }
 
     .info-box{
@@ -2502,5 +2502,345 @@ body{
     max-width:100%;
 }
 
+
+}
+/* .footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+
+    padding:22px 8%;
+
+    background:rgba(8,10,18,.75);
+    backdrop-filter:blur(18px);
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    flex-wrap:wrap;
+}
+
+.footer-left{
+    flex:1;
+}
+
+.footer-right{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    min-width:220px;
+}
+
+.text-footer{
+    color:#d8d8d8;
+    font-size:15px;
+    line-height:1.7;
+} */
+.footer{
+
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    width: 100%;
+    padding:15px 8%;
+
+    background:rgba(5,8,20,.88);
+
+    backdrop-filter:blur(22px);
+
+    border-top:1px solid rgba(255,255,255,.08);
+  position: relative;
+
+    gap:35px;
+
+}
+
+.footer-left{
+    display:flex;
+    position: absolute;
+    flex-direction:column;
+    justify-content: center;
+     transform:translateX(-50%);
+    align-items: center;
+    text-align: center;
+    left: 50%;
+    gap:10px;
+
+}
+
+.text-footer{
+
+    color:#d8d8d8;
+    font-size:15px;
+
+}
+
+.footer-credit{
+
+    color:#bfc7d8;
+    font-size:15px;
+
+}
+
+.footer-credit .heart{
+
+    color:#ff5b88;
+
+}
+
+.footer-credit .name{
+
+    color:white;
+    font-weight:700;
+
+}
+
+
+/* CARD */
+
+.like-card{
+
+    position:relative;
+    z-index: 0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    width:180px;
+
+    padding:15px 12px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    overflow:hidden;
+
+    transition:.4s;
+
+}
+
+.like-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 0 35px rgba(255,80,120,.18);
+
+}
+
+
+/* HEART */
+
+#heartBtn{
+
+    background:none;
+    border:none;
+    outline: none;
+    color:white;
+
+    font-size:42px;
+
+    cursor:pointer;
+
+    transition:.3s;
+    position: relative;
+    z-index: 2;
+
+}
+
+#heartBtn:hover{
+
+    transform:scale(1.12);
+
+}
+
+#heartBtn.liked{
+
+    color:#ff4d7d;
+
+    animation:heartPop .45s ease;
+
+    filter:
+
+    drop-shadow(0 0 8px #ff4d7d)
+    drop-shadow(0 0 18px #ff4d7d)
+    /* drop-shadow(0 0 30px #ff4d7d); */
+
+}
+
+
+/* TEXT */
+
+.heart-text{
+
+    margin-top:6px;
+
+    color:white;
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+.heart-text span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#9da8be;
+
+    font-size:13px;
+
+    font-weight:500;
+
+}
+
+
+/* COUNTER */
+
+#heartCount{
+
+    margin-top:8px;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    background:linear-gradient(
+    90deg,
+    #ff4d7d,
+    #ff85b2,
+    #ffffff,
+    #ff85b2,
+    #ff4d7d
+    );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:gradientFlow 5s linear infinite;
+
+    text-shadow:0 0 18px rgba(255,90,120,.5);
+
+}
+
+
+/* FLOATING HEARTS */
+
+#heartParticles{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+    z-index: 1;
+
+}
+
+.floating-heart{
+
+    position:absolute;
+
+    left:50%;
+    top:55px;
+
+    color:#ff5b88;
+
+    font-size:18px;
+
+    animation:floatHeart 1.6s linear forwards;
+
+}
+
+
+/* ANIMATIONS */
+
+@keyframes gradientFlow{
+
+0%{background-position:0%;}
+
+100%{background-position:300%;}
+
+}
+
+@keyframes heartPop{
+
+0%{transform:scale(1);}
+
+35%{transform:scale(1.45);}
+
+60%{transform:scale(.9);}
+
+100%{transform:scale(1.2);}
+
+}
+
+@keyframes floatHeart{
+
+0%{
+
+opacity:1;
+
+transform:
+translate(-50%,0)
+scale(.5);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+translate(calc(-50% + var(--x)),-120px)
+scale(1.5);
+
+}
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.footer{
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.footer-left{
+
+    position:static;
+
+    transform:none;
+
+}
+
+.like-card{
+
+    width:100%;
+
+    max-width:260px;
+
+}
 
 }
