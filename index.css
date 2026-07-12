@@ -1,12 +1,9 @@
-/* RESET (clean, no layout-breaking nonsense) */
 
-html {
-  /* scroll-behavior: smooth; */
-}
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+
 }
 :root {
   --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -247,13 +244,15 @@ body::after{
 .navbar {
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+  width: auto;
   height: 60px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 0 20px;
 
   background: rgba(20, 20, 35, 0.4);
   backdrop-filter: blur(18px);
@@ -476,7 +475,7 @@ body::after{
   right: 80px;
   width: 140px;
   height: 140px;
-  z-index: 2;
+  z-index: 20;
   pointer-events: auto;
 }
 
@@ -522,7 +521,7 @@ body::after{
   height: 15px;
   background: #60a5fa;
   border-radius: 50%;
-  position: fixed;
+  position: absolute;
   pointer-events: none;
 
   top: 50%;
@@ -533,7 +532,7 @@ body::after{
     0 0 25px #60a5fa;
 
   animation: orbitMove 8s linear infinite;
-  z-index: -10;
+  z-index: 3;
 }
 
 @keyframes pulse {
@@ -829,11 +828,13 @@ body::after{
   position: relative;
 
   bottom: 10px; /* distance from bottom */
-  left: 50%;
-  transform: translateX(-50%);
+  left: auto;
+  /* transform: translateX(-50%); */
+  transform: none;
+  margin: 0 auto;
 
-  width: 520px;
-  height: 520px;
+  width:min(520px,95vw);
+    height:min(520px,95vw);
 
   z-index: 2;
   pointer-events: none; /* optional: avoids blocking clicks */
@@ -969,8 +970,8 @@ a{
 /* each card */
 .card {
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     border-radius: 20px;
@@ -1124,7 +1125,7 @@ a{
   padding: 40px;
    justify-items: center;
    position: relative;
-   z-index: 2px;
+   z-index: 2;
 }
 
 /* CARD */  
@@ -1150,8 +1151,8 @@ a{
   width: 340px;
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter:blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter:blur(10px);
 }
 
 /* TOP IMAGE */
@@ -1242,8 +1243,8 @@ a{
         rgba(13,17,25,.95)
     );
 
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   /* border: 1px solid rgba(255, 255, 255, 0.1);; */
       border:1px solid rgba(255,255,255,.06);
 
@@ -1277,8 +1278,8 @@ a{
   border-radius: 10px;
       background: linear-gradient(135deg, rgba(181, 181, 181, 0.206), rgba(181, 181, 181, 0.02));
     border: 1px solid rgba(181, 181, 181, 0.19);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);;
   padding: 10px;
@@ -1343,8 +1344,8 @@ a{
   border-radius: 10px;
       background: linear-gradient(135deg, rgba(79, 194, 247, 0.159), rgba(79, 195, 247, 0.02));
     border: 2px solid rgba(79, 195, 247, 0.19);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);;
   padding: 10px;
@@ -1375,8 +1376,8 @@ a{
   border-radius: 10px;
   background: linear-gradient(135deg, rgba(239, 83, 80, 0.174), rgba(239, 83, 80, 0.02));
     border: 2px solid rgba(239, 83, 80, 0.19);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);;
   padding: 10px;
   border-radius: 30px;
@@ -1406,8 +1407,8 @@ a{
   border-radius: 10px;
       background: linear-gradient(135deg, rgba(255, 184, 77, 0.143), rgba(255, 183, 77, 0.02));
     border: 2px solid rgba(255, 183, 77, 0.19);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);;
   padding: 10px;
   border-radius: 30px;
@@ -1438,8 +1439,8 @@ a{
   border-radius: 10px;
      background: linear-gradient(135deg, rgba(249, 228, 183, 0.183), rgba(249, 228, 183, 0.02));
     border: 2px solid rgba(249, 228, 183, 0.19);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);;
   padding: 10px;
   border-radius: 30px;
@@ -1470,8 +1471,8 @@ color: rgb(249, 228, 183);
   border-radius: 10px;
     background: linear-gradient(135deg, rgba(128, 222, 234, 0.176), rgba(128, 222, 234, 0.02));
     border: 2px solid rgba(128, 222, 234, 0.19);  
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);;
   padding: 10px;
   border-radius: 30px;
@@ -1502,8 +1503,8 @@ color: rgb(249, 228, 183);
   border-radius: 10px;
       background: linear-gradient(135deg, rgba(92, 107, 192, 0.262), rgba(92, 107, 192, 0.02));
     border: 2px solid rgba(92, 107, 192, 0.19);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);;
   padding: 10px;
   border-radius: 30px;
@@ -1540,8 +1541,8 @@ color: rgb(249, 228, 183);
         rgba(22,28,40,.9),
         rgba(13,17,25,.95)
     );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   /* border: 1px solid rgba(255, 255, 255, 0.1);; */
   border:1px solid rgba(100,170,255,.12);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);;
@@ -1660,7 +1661,7 @@ color: rgb(249, 228, 183);
     gap: 40px;
 
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(10px);
     border-radius: 22px;
 
     border: 2px solid rgba(255, 255, 255, 0.06);
@@ -1931,18 +1932,20 @@ color: rgb(249, 228, 183);
   font-family: 'Poppins', sans-serif;
 }
 .beyondplanets{
-  transform: translateY(185px);
+    margin-top:185px;
+    transform:none;
 }
-.b-cards {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 40px;
+.b-cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:flex-start;
+    gap:30px;
+    width:100%;
 }
-
 .bcard {
     width: 360px;
-    /* height: 650px; */
+    /* /* height:  */
     background: #0b0b16;
     border-radius: 20px;
     overflow: hidden;
@@ -1969,8 +1972,13 @@ color: rgb(249, 228, 183);
     position: absolute;
     top: 15px;
     right: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    white-space: nowrap;
     background: rgba(28, 28, 28, 0.639);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     font-size: 14px;
@@ -2178,7 +2186,6 @@ body{
     max-width:100%;
 }
 
-
 }
 
 /* ---------- Tablets ---------- */
@@ -2224,9 +2231,14 @@ body{
     }
 
     .planet-container{
-        display:none;
-    }
-
+    display:block;
+    position:absolute;
+    top:90px;
+    right:20px;
+    width:100px;
+    height:100px;
+    transform:scale(.75);
+}
     .solar-system{
         width:420px;
         height:420px;
@@ -2266,8 +2278,6 @@ body{
 *{
     max-width:100%;
 }
-
-
 }
 
 /* ---------- Mobile ---------- */
@@ -2275,13 +2285,20 @@ body{
 
     .navbar{
         height:65px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding:0 16px;
     }
+    
 
     .logo{
         font-size:18px;
     }
-
+    .rocket-system{
+      display: none;
+    }
     .nav-links{
         display:none;
     }
@@ -2302,7 +2319,7 @@ body{
     .small{
         font-size:48px;
     }
-
+    
     .hero .large,
     .large{
         font-size:56px;
@@ -2327,20 +2344,28 @@ body{
         width:300px;
         height:300px;
     }
+     html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
 
+*{
+    max-width:100%;
+}
     .sun{
         width:70px;
         height:70px;
     }
 
-    .o1{width:80px;height:80px;}
-    .o2{width:110px;height:110px;}
-    .o3{width:140px;height:140px;}
-    .o4{width:170px;height:170px;}
-    .o5{width:210px;height:210px;}
-    .o6{width:250px;height:250px;}
-    .o7{width:290px;height:290px;}
-    .o8{width:330px;height:330px;}
+    .o1{width:18%;height:18%;}
+.o2{width:30%;height:30%;}
+.o3{width:42%;height:42%;}
+.o4{width:54%;height:54%;}
+.o5{width:66%;height:66%;}
+.o6{width:78%;height:78%;}
+.o7{width:90%;height:90%;}
+.o8{width:100%;height:100%;}
 
     .solar-title{
         font-size:34px;
@@ -2383,9 +2408,8 @@ body{
     }
 
     .planetcard{
-        width:100%;
-        max-width:370px;
-    }
+    width:min(340px,100%);
+}
 
     .info-box{
         width:100%;
@@ -2426,13 +2450,35 @@ body{
     }
 
     .bcard{
-        width:95%;
-    }
+    width:min(360px,100%);
+}
 
     .footer{
         padding:18px 15px;
     }
-    html,
+
+    .planet{
+        width:100px;
+        height:100px;
+    }
+
+} 
+/* ---------- Small Phones ---------- */
+@media (max-width:480px){
+
+ 
+    .hero .small,
+    .small{
+        font-size:36px;
+    }
+     .rocket-system{
+      display: none;
+    } 
+    .hero .large,
+    .large{
+        font-size:42px;
+    }
+     html,
 body{
     width:100%;
     overflow-x:hidden;
@@ -2441,23 +2487,6 @@ body{
 *{
     max-width:100%;
 }
-
-
-}
-
-/* ---------- Small Phones ---------- */
-@media (max-width:480px){
-
-    .hero .small,
-    .small{
-        font-size:36px;
-    }
-
-    .hero .large,
-    .large{
-        font-size:42px;
-    }
-
     .desc{
         font-size:14px;
     }
@@ -2492,15 +2521,9 @@ body{
     .footer-credit{
         font-size:13px;
     }
-    html,
-body{
-    width:100%;
-    overflow-x:hidden;
-}
+    
 
-*{
-    max-width:100%;
-}
+
 
 
 }
@@ -2843,4 +2866,51 @@ scale(1.5);
 
 }
 
+}
+.aboutplanet,
+.pcontainer,
+.solar-facts,
+.beyondplanets{
+
+content-visibility:auto;
+
+contain-intrinsic-size:800px;
+
+}
+@media (max-width:768px){
+
+    .rocket,
+    .nebula,
+    .heart{
+        animation:none;
+    }
+
+}
+#starCanvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    pointer-events:none;
+}
+.aboutplanet{
+    content-visibility:auto;
+    contain-intrinsic-size:900px;
+}
+.pcontainer{
+    content-visibility:auto;
+    contain-intrinsic-size:1800px;
+}
+.solar-facts{
+    content-visibility:auto;
+    contain-intrinsic-size:900px;
+}
+.beyondplanets{
+    content-visibility:auto;
+    contain-intrinsic-size:1200px;
+}
+#meetplanet{
+    content-visibility:auto;
+    contain-intrinsic-size:1500px;
 }
