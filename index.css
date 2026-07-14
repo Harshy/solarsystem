@@ -2295,22 +2295,25 @@ body{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding:0 16px;
+        padding:0 18px;
     }
     
 
     .logo{
         font-size:18px;
+        position: static;
+        flex-shrink: 0;
     }
     .rocket-system{
       display: none;
     }
     .nav-links{
         display:none;
+        position: absolute;
     }
 
     .explore-btn{
-        padding:8px 16px;
+        padding:10px 22px;
         font-size:14px;
     }
 
@@ -2927,6 +2930,7 @@ contain-intrinsic-size:800px;
     justify-content:center;
 
     height:42px;
+    width: 42px;
     padding:0 20px;
 
     font:inherit;
@@ -3288,7 +3292,7 @@ input[type=range]{
 
 @media(max-width:768px){
 
-    .navbar{
+    /* .navbar{
 
         gap:18px;
 
@@ -3296,7 +3300,7 @@ input[type=range]{
 
         width:95%;
 
-    }
+    } */
 
     .nav-link{
 
@@ -3539,6 +3543,97 @@ input[type=range]{
         border-radius: 50%;
 
         gap:0;
+
+    }
+
+}
+/* ==========================
+   SECRET CURSOR
+========================== */
+
+#secretCursor{
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:24px;
+    height:24px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    z-index:999999;
+
+    opacity:0;
+
+    background:linear-gradient(
+        45deg,
+        #ff4d6d,
+        #ff0080,
+        #7c3aed,
+        #06b6d4
+    );
+
+    background-size:300% 300%;
+
+    animation:
+        cursorGradient 4s linear infinite,
+        cursorPulse 2s ease-in-out infinite;
+
+    box-shadow:
+        0 0 10px rgba(255,77,109,.8),
+        0 0 25px rgba(124,58,237,.6),
+        0 0 40px rgba(6,182,212,.35);
+
+    transition:
+        opacity .3s ease;
+
+}
+
+@keyframes cursorGradient{
+
+    0%{
+
+        background-position:0% 50%;
+
+    }
+
+    50%{
+
+        background-position:100% 50%;
+
+    }
+
+    100%{
+
+        background-position:0% 50%;
+
+    }
+
+}
+
+@keyframes cursorPulse{
+
+    0%{
+
+        transform:translate(-50%,-50%) scale(1);
+
+    }
+
+    50%{
+
+        transform:translate(-50%,-50%) scale(1.18);
+
+    }
+
+    100%{
+
+        transform:translate(-50%,-50%) scale(1);
 
     }
 
