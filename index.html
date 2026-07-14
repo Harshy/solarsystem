@@ -16,6 +16,7 @@ defer
 src="https://unpkg.com/lenis@1.0.0/dist/lenis.min.js">
 </script>
     <script type="module" src="script.js"></script>
+  
     <title>Cosmic Lumina</title>
 </head>
 <!-- <script>
@@ -42,11 +43,135 @@ requestAnimationFrame(raf);
   <ul class="nav-links">
     <li><a onclick="document.getElementById('meetplanet').scrollIntoView({behavior:'smooth'});">Planets</a></li>
     <li><a onclick="document.getElementById('fact').scrollIntoView({behavior:'smooth'});"">Facts</a></li>
+    <li>
+        <button id="musicBtn" class="music-btn">
+            🎵
+        </button>
+    </li>
     <li><a onclick="document.getElementById('meetplanet').scrollIntoView({behavior:'smooth'});"">Explore</a></li>
     <li><a onclick="document.getElementById('beyondplanets').scrollIntoView({behavior:'smooth'});">Gallery</a></li>
   </ul>
   <button class="explore-btn"onclick="document.getElementById('sunhref').scrollIntoView({ behavior: 'smooth' })">Explore Now</button>
 </nav>
+<div class="overlay" id="overlay">
+
+        <div class="music-card" id="musicCard">
+
+            <button id="closeBtn" class="close-btn">
+                ✕
+            </button>
+
+            <h2>
+
+                🌌 Ambient Space
+
+            </h2>
+
+            <p class="subtitle">
+
+                Relax while exploring the universe.
+
+            </p>
+
+
+            <!-- SELECT -->
+
+            <label>
+
+                Choose Sound
+
+            </label>
+
+            <select id="trackSelect">
+
+                <option value="sounds/Suffer-with-me-01.mp3">
+                    🌌 Suffer With Me
+                </option>
+
+                <option value="sounds/deep-space-ambient-01.mp3">
+                    🌠 Deep Space
+                </option>
+
+                <option value="sounds/deep-space-ambient-02.mp3">
+                    📡 Space Ambience
+                </option>
+
+                <option value="sounds/deep-space-ambient-03.mp3">
+                    🛰 Why Is It Empty ?
+                </option>
+
+            </select>
+
+
+            <!-- CONTROLS -->
+
+           <div class="controls">
+
+    <button id="toggleMusicBtn" class="play">
+
+        ▶ Play
+
+    </button>
+
+</div>
+<div class="progress-container">
+
+    <span id="currentTime">0:00</span>
+
+    <input
+        type="range"
+        id="progressBar"
+        value="0"
+        min="0"
+        max="100"
+    >
+
+    <span id="duration">0:00</span>
+
+</div>
+
+
+            <!-- VOLUME -->
+
+            <div class="volume-box">
+
+                <label>
+
+                    🔊 Volume
+
+                </label>
+
+                <input
+                    type="range"
+                    id="volumeSlider"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value="0.5"
+                >
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- AUDIO -->
+
+    <audio
+        id="ambientAudio"
+        loop
+    >
+
+        <source
+            src="sounds/deep-space.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
 <div class="rocket-system">
 
   <div class="rocket">🚀</div>
@@ -783,6 +908,6 @@ document.querySelectorAll(".toggle-text").forEach(toggle => {
 
 });
 </script> 
-
+  <script src="ambient.js"></script>
 </body>
 </html>
