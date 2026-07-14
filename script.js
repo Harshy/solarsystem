@@ -448,3 +448,72 @@ function animate(){
 }
 
 animate();
+// ----------------------------------
+// ==========================
+// SECRET CURSOR
+// Press B 5 times
+// ==========================
+
+const secretCursor = document.getElementById("secretCursor");
+
+let secretMode = false;
+let bPresses = 0;
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key.toLowerCase()==="b"){
+
+        bPresses++;
+
+        if(bPresses>=5){
+
+            secretMode=!secretMode;
+
+            bPresses=0;
+
+            if(secretMode){
+
+                document.body.style.cursor="none";
+                secretCursor.style.opacity="1";
+
+            }else{
+
+                document.body.style.cursor="default";
+                secretCursor.style.opacity="0";
+
+            }
+
+        }
+
+    }else{
+
+        bPresses=0;
+
+    }
+
+});
+
+document.addEventListener("mousemove",(e)=>{
+
+    if(!secretMode) return;
+
+    secretCursor.style.left=e.clientX+"px";
+    secretCursor.style.top=e.clientY+"px";
+
+});
+
+document.addEventListener("mouseleave",()=>{
+
+    secretCursor.style.opacity="0";
+
+});
+
+document.addEventListener("mouseenter",()=>{
+
+    if(secretMode){
+
+        secretCursor.style.opacity="1";
+
+    }
+
+});
